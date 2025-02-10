@@ -1,0 +1,66 @@
+Cabecera de la clase
+#pragma once
+class Triangulo
+{
+private:
+	float base, altura;
+
+public:
+	Triangulo();
+
+	void set_altura(float alt);
+	void set_base(float bs);
+	float get_altura();
+	float get_base();
+	float area();
+};
+
+Implementacion de la clase
+
+#include "Triangulo.h"
+Triangulo::Triangulo() {
+
+}
+void Triangulo::set_altura(float alt) {
+	altura = alt;
+}
+void Triangulo::set_base(float bs) {
+	base = bs;
+}
+float Triangulo::get_altura() {
+	return altura;
+}
+float Triangulo::get_base() {
+	return base;
+}
+float Triangulo::area() {
+	return base * altura / 2;
+}
+
+El main de la clase
+
+#include <iostream>
+#include "Triangulo.h"
+
+using namespace std;
+
+int main()
+{
+	float base, altura;
+
+	do {
+		cout << "Ingrese la base: ";
+		cin >> base;
+	} while (base < 1);
+	do {
+		cout << "Ingrese la altura: ";
+		cin >> altura;
+	} while (altura < 1);
+
+	Triangulo triang;
+	triang.set_altura(altura); 
+	triang.set_base(base);
+	cout << "El area de el triangulo es " << triang.area();
+
+	return 0;
+}
