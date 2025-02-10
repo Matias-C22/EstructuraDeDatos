@@ -1,0 +1,188 @@
+cabecera del clase rectangulo
+#pragma once
+class Rectangulo
+{
+private:
+	float altura, base;
+
+public:
+	Rectangulo();
+
+	void set_altura(float alt);
+	void set_base(float bs);
+	float get_altura();
+	float get_base();
+	float area();
+
+};
+
+implementacion de la clase rectangulo
+#include "Rectangulo.h"
+
+Rectangulo::Rectangulo() {
+
+}
+void Rectangulo::set_altura(float alt) {
+	altura = alt;
+}
+void Rectangulo::set_base(float bs) {
+	base = bs;
+}
+float Rectangulo::get_altura() {
+	return altura;
+}
+float Rectangulo::get_base() {
+	return base;
+}
+float Rectangulo::area() {
+	return base * altura;
+}
+
+cabecera del la clase paralelogramo
+#pragma once
+class Paralelogramo
+{
+	
+private:
+	float altura, base;
+
+public:
+	Paralelogramo();
+
+	void set_altura(float alt);
+	void set_base(float bs);
+	float get_altura();
+	float get_base();
+	float area();
+};
+
+implementacion de la clase paralelogramo
+#include "Paralelogramo.h"
+
+Paralelogramo::Paralelogramo() {
+
+}
+void Paralelogramo::set_altura(float alt) {
+	altura = alt;
+}
+void Paralelogramo::set_base(float bs) {
+	base = bs;
+}
+float Paralelogramo::get_altura() {
+	return altura;
+}
+float Paralelogramo::get_base() {
+	return base;
+}
+float Paralelogramo::area() {
+	return base * altura;
+}
+
+cabecera de la clase cuadrado
+#pragma once
+class Cuadrado
+{
+private:
+	float lado;
+
+public:
+	Cuadrado();
+
+	void set_lado(float alt);
+	float get_lado();
+	float area();
+};
+
+implementacion de la clase cuadrado
+#include "Cuadrado.h"
+
+Cuadrado::Cuadrado() {
+
+}
+void Cuadrado::set_lado(float l) {
+	lado = l;
+}
+
+float Cuadrado::get_lado() {
+	return lado;
+}
+float Cuadrado::area() {
+	return lado*lado;
+}
+
+main del programa
+
+#include <iostream>
+#include "Rectangulo.h"
+#include "Paralelogramo.h"
+#include "Cuadrado.h"
+
+using namespace std;
+
+int main()
+{
+	int opcion;
+	float base, altura,lado;
+
+	Paralelogramo par;
+	Cuadrado cuad;
+	Rectangulo rect;
+
+
+	do {
+
+		cout << "------- Menu -------" << endl;
+		cout << "1. Area de un rectangulo" << endl;
+		cout << "2. Area de un paralelogramo" << endl;
+		cout << "3. Area de un cuadrado" << endl;
+		cout << "0. Salir" << endl;
+		cout << "Ingrese una opcion: ";
+		cin >> opcion;
+
+		switch (opcion)
+		{
+		case 1:
+			do {
+				cout << "Ingrese la altura del rectaungulo: ";
+				cin >> altura;
+			} while (altura < 1);
+			do {
+				cout << "Ingrese la base del rectaungulo: ";
+				cin >> base;
+			} while (base < 1);
+			rect.set_altura(altura);
+			rect.set_base(base);
+			cout << "El area de el rectangulo es " << rect.area()<<endl;
+			break;
+		case 2:
+			do {
+				cout << "Ingrese la altura del paralelogramo: ";
+				cin >> altura;
+			} while (altura < 1);
+			do {
+				cout << "Ingrese la base del paralelogramo: ";
+				cin >> base;
+			} while (base < 1);
+			par.set_altura(altura);
+			par.set_base(base);
+			cout << "El area de el cuadrado es " << par.area()<<endl;
+			break;
+		case 3:
+			do {
+				cout << "Ingrese un lado del cuadrado: ";
+				cin >> lado;
+			} while (lado < 1);
+			
+			cuad.set_lado(lado);
+			cout << "El area de el cuadrado es " << cuad.area()<<endl;
+			break;
+		default:
+			cout << "Ingrese una opciion valida" << endl;
+			break;
+		}
+
+	} while (opcion != 0);
+
+	return 0;
+}
+
